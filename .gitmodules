@@ -1,0 +1,3 @@
+[submodule "third_party/DetectorFreeSfM"]
+	path = third_party/DetectorFreeSfM
+	url = https://github.com/Fitzgera1d/DetectorFreeSfM.git
