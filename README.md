@@ -19,9 +19,10 @@ git submodule update --init --recursive
 Please refer to [INSTALL.md](INSTALL.md) for installation instructions.
 
 ## Prepare Dataset
+### SfM dataset
 The data structure of our system is organized as follows:
 ```
-repo_path/SfM_dataset
+repo_path/dataset
     - dataset_name1
         - scene_name_1
             - images
@@ -45,46 +46,38 @@ The folder naming of `images`, `intrins` and `poses` is **compulsory**, for the 
 
 Now, download the training and evaluation datasets, and then format them to required structure following instructions in [DATASET_PREPARE.md](DATASET_PREPARE.md).
 
+### dense reconstruction dataset
+The data structure for dense reconstruction is organized as follows, which is the output of our sfm part:
+```
+outputs/_dataset/
+├── dataset_name
+│   ├── scene1/
+│   │   ├── images
+│   │   │   ├── IMG_0.jpg
+│   │   │   ├── IMG_1.jpg
+│   │   │   ├── ...
+│   │   ├── sparse/
+│   │       └──0/
+│   ├── scene2/
+│   │   ├── images
+│   │   │   ├── IMG_0.jpg
+│   │   │   ├── IMG_1.jpg
+│   │   │   ├── ...
+│   │   ├── sparse/
+│   │       └──0/
+...
+```
+
+## Prepare Config Files
+In this repo, you can either run NVS after SFM, or you can run either part independently by using different configurations with `pipeline.py`. To specify the tasks to be conduct, you can simply change contents of `task_list`.
+First modify `configs/dataset/demo_church.yaml` to specify the path of dataset relative to the repo, but you should also get your input in `configs/recon/your_config.yaml` correct if you run recon separately.
+
 ## Run Demo data
-First modify L22 in `hydra_configs/demo/dfsfm.yaml` to specify the absolute path of the repo.
-Then run the following command:
+You can use the following command to get start demo:
 ```
 python pipeline.py +dataset=demo_church.yaml +sfm=hydra_configs/demo/dfsfm.yaml +recon=octreegs/full.yaml task_list=\[sfm,recon\] output_dir=outputs exp_name=baseline
 ```
-SfM result will be saved in `SfM_dataset/example_dataset/example_scene/DetectorFreeSfM_loftr_official_coarse_only__scratch_no_intrin/colmap_refined` in COLMAP format, and can be visualized by `colmap gui`.
+SfM result will be saved in `outputs/sfm/demo/church/DetectorFreeSfM_loftr_official_coarse_only__scratch_no_intrin/colmap_refined` in COLMAP format, and can be visualized by `colmap gui`.
+Reconstruction result will be saved in `outputs/recon/demo/church/`.
 
-## Evaluation
-### SfM Evaluation
-```
-# For ETH3D dataset:
-python eval_dataset.py +eth3d_sfm=dfsfm.yaml neuralsfm.NEUSFM_coarse_matcher='loftr_official'
-python eval_dataset.py +eth3d_sfm=dfsfm.yaml neuralsfm.NEUSFM_coarse_matcher='aspanformer'
-python eval_dataset.py +eth3d_sfm=dfsfm.yaml neuralsfm.NEUSFM_coarse_matcher='matchformer'
-
-# For IMC dataset:
-sh scripts/eval_imc_dataset.sh
-
-# For TexturePoorSfM dataset:
-sh scripts/eval_texturepoorsfm_dataset.sh
-```
-### Triangulation evaluation
-
-```
-# For ETH3D dataset:
-python eval_dataset.py +eth3d_tri=dfsfm.yaml neuralsfm.NEUSFM_coarse_matcher='loftr_official'
-python eval_dataset.py +eth3d_tri=dfsfm.yaml neuralsfm.NEUSFM_coarse_matcher='aspanformer'
-python eval_dataset.py +eth3d_tri=dfsfm.yaml neuralsfm.NEUSFM_coarse_matcher='matchformer'
-```
-
-### Tips about speed up
-1. You can speed up evaluation by enable multi-processing if you have multiple GPUs.
-You can set `ray.enable=True` and set `ray.n_workers=your_gpu_number` the configs to simutaneously evaluate many scenes within a dataset.
-2. For a scene with many images, like `Bridge` in the ETH3D dataset, you can set multiple workers for image matching in coarse SfM and multi-view refinement matching phase by setting `sub_use_ray=True` and `sub_ray_n_worker=your_gpu_number`
-3. Increase batchsize in multi-view refinement phase. Currently, we chunk the tracks in refinement matching and `neuralsfm.NEUSFM_refinement_chunk_size` is set to `2000` so that it can work on GPU with VRAM less than 12GB. If the GPUs in your device are with larger VRAM, you can consider increase this value to speed up the process.
-
-## Train Multiview Matching Refiner
-Be sure you have downloaded and formated the MegaDepth dataset following [DATASET_PREPARE.md](DATASET_PREPARE.md).
-```
-python train_multiview_matcher.py +experiment=multiview_refinement_matching.yaml paths=dataset_path_config trainer=trainer_config
-```
-You can modify the GPU ids in `hydra_training_configs/trainer/trainer_config.yaml`. By default, we use 8 GPUs for training.
+For more details, you can look at `README.md` for [DetectorFreeSfM](./third_party/dsfm/README.md) and [Octree-Gs](./third_party/octree_gs/README.md)
