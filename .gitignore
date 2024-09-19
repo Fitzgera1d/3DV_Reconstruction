@@ -162,5 +162,13 @@ cython_debug/
 #.idea/
 
 # input and output data
-data/
+datasets/*
+!datasets/demo/
+neuralsfm_output/
 outputs/
+
+.hydra
+*.DS_Store
+logs/
+weight/
+._weight

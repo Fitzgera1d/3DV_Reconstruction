@@ -1,0 +1,5 @@
+# @package dataset
+
+name: bungeenerf  # decide sfm.dataset_name
+base_dir: datasets # decide sfm.dataset_base_dir
+scene_list: [hollywood] # decide sfm.scene_list

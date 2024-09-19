@@ -1,3 +1,6 @@
 [submodule "third_party/DetectorFreeSfM"]
-	path = third_party/DetectorFreeSfM
+	path = third_party/dsfm
 	url = https://github.com/Fitzgera1d/DetectorFreeSfM.git
+[submodule "third_party/Octree-GS"]
+	path = third_party/octree_gs
+	url = https://github.com/Fitzgera1d/Octree-GS.git

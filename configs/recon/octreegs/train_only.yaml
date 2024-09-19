@@ -1,0 +1,35 @@
+# @package recon
+
+task_list: 
+  - train # render, metrics
+
+model_name: octree_gs
+type: 3dgs
+
+source_path: outputs/_dataset/demo/church
+model_path: outputs/recon/demo/church/${now:%Y-%m-%d_%H:%M:%S}
+model_paths:
+  - ${model_path}
+port: 55544
+
+exp_name: baseline
+gpu: -1
+ratio: 1
+resolution: -1
+appearance_dim: 0
+
+fork: 2
+base_layer: 12
+visible_threshold: 0.9
+dist2level: round
+update_ratio: 0.2
+
+progressive: True
+dist_ratio: 0.999 #0.99
+levels: -1
+init_level: -1
+extra_ratio: 0.25
+extra_up: 0.01
+
+iterations: 40_000
+warmup: False

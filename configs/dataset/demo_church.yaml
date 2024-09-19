@@ -1,0 +1,5 @@
+# @package dataset
+
+name: demo  # decide sfm.dataset_name
+base_dir: datasets # decide sfm.dataset_base_dir
+scene_list: [church] # decide sfm.scene_list

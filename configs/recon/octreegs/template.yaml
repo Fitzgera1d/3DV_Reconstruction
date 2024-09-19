@@ -1,0 +1,98 @@
+optional arguments:
+  --ip IP
+  --port PORT
+  --debug_from DEBUG_FROM
+  --detect_anomaly
+  --warmup
+  --use_wandb
+  --test_iterations TEST_ITERATIONS [TEST_ITERATIONS ...]
+  --save_iterations SAVE_ITERATIONS [SAVE_ITERATIONS ...]
+  --quiet
+  --checkpoint_iterations CHECKPOINT_ITERATIONS [CHECKPOINT_ITERATIONS ...]
+  --start_checkpoint START_CHECKPOINT
+  --gpu GPU
+
+Loading Parameters:
+  --feat_dim FEAT_DIM
+  --n_offsets N_OFFSETS
+  --fork FORK
+  --use_feat_bank
+  --source_path SOURCE_PATH, -s SOURCE_PATH
+  --model_path MODEL_PATH, -m MODEL_PATH
+  --images IMAGES, -i IMAGES
+  --resolution RESOLUTION, -r RESOLUTION
+  --white_background
+  --random_background
+  --resolution_scales RESOLUTION_SCALES
+  --data_device DATA_DEVICE
+  --eval
+  --ds DS
+  --ratio RATIO
+  --undistorted
+  --appearance_dim APPEARANCE_DIM
+  --add_opacity_dist
+  --add_cov_dist
+  --add_color_dist
+  --add_level
+  --extend EXTEND
+  --dist2level DIST2LEVEL
+  --base_layer BASE_LAYER
+  --visible_threshold VISIBLE_THRESHOLD
+  --update_ratio UPDATE_RATIO
+  --progressive
+  --dist_ratio DIST_RATIO
+  --levels LEVELS
+  --init_level INIT_LEVEL
+  --extra_ratio EXTRA_RATIO
+  --extra_up EXTRA_UP
+
+Optimization Parameters:
+  --iterations ITERATIONS
+  --position_lr_init POSITION_LR_INIT
+  --position_lr_final POSITION_LR_FINAL
+  --position_lr_delay_mult POSITION_LR_DELAY_MULT
+  --position_lr_max_steps POSITION_LR_MAX_STEPS
+  --offset_lr_init OFFSET_LR_INIT
+  --offset_lr_final OFFSET_LR_FINAL
+  --offset_lr_delay_mult OFFSET_LR_DELAY_MULT
+  --offset_lr_max_steps OFFSET_LR_MAX_STEPS
+  --feature_lr FEATURE_LR
+  --opacity_lr OPACITY_LR
+  --scaling_lr SCALING_LR
+  --rotation_lr ROTATION_LR
+  --mlp_opacity_lr_init MLP_OPACITY_LR_INIT
+  --mlp_opacity_lr_final MLP_OPACITY_LR_FINAL
+  --mlp_opacity_lr_delay_mult MLP_OPACITY_LR_DELAY_MULT
+  --mlp_opacity_lr_max_steps MLP_OPACITY_LR_MAX_STEPS
+  --mlp_cov_lr_init MLP_COV_LR_INIT
+  --mlp_cov_lr_final MLP_COV_LR_FINAL
+  --mlp_cov_lr_delay_mult MLP_COV_LR_DELAY_MULT
+  --mlp_cov_lr_max_steps MLP_COV_LR_MAX_STEPS
+  --mlp_color_lr_init MLP_COLOR_LR_INIT
+  --mlp_color_lr_final MLP_COLOR_LR_FINAL
+  --mlp_color_lr_delay_mult MLP_COLOR_LR_DELAY_MULT
+  --mlp_color_lr_max_steps MLP_COLOR_LR_MAX_STEPS
+  --mlp_featurebank_lr_init MLP_FEATUREBANK_LR_INIT
+  --mlp_featurebank_lr_final MLP_FEATUREBANK_LR_FINAL
+  --mlp_featurebank_lr_delay_mult MLP_FEATUREBANK_LR_DELAY_MULT
+  --mlp_featurebank_lr_max_steps MLP_FEATUREBANK_LR_MAX_STEPS
+  --appearance_lr_init APPEARANCE_LR_INIT
+  --appearance_lr_final APPEARANCE_LR_FINAL
+  --appearance_lr_delay_mult APPEARANCE_LR_DELAY_MULT
+  --appearance_lr_max_steps APPEARANCE_LR_MAX_STEPS
+  --percent_dense PERCENT_DENSE
+  --lambda_dssim LAMBDA_DSSIM
+  --start_stat START_STAT
+  --update_from UPDATE_FROM
+  --coarse_iter COARSE_ITER
+  --coarse_factor COARSE_FACTOR
+  --update_interval UPDATE_INTERVAL
+  --update_until UPDATE_UNTIL
+  --update_anchor
+  --min_opacity MIN_OPACITY
+  --success_threshold SUCCESS_THRESHOLD
+  --densify_grad_threshold DENSIFY_GRAD_THRESHOLD
+
+Pipeline Parameters:
+  --compute_cov3D_python
+  --debug

@@ -1,0 +1,36 @@
+name: reconstruction
+channels:
+  # - https://dx-mirrors.sensetime.com/anaconda/cloud/pytorch
+  # - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch
+  - pytorch
+  - pyg
+  - conda-forge
+  - defaults
+dependencies:
+  - cudatoolkit=11.3 # Modify here!
+  - ipython
+  - matplotlib
+  - plyfile=0.8.1
+  - pip=22.3.1
+  - pylint
+  - python=3.9.15
+  - pytorch=1.12.1 # Modify here!
+  - pytorch-scatter
+  - torchaudio=0.12.1 # Modify here!
+  - torchvision=0.13.1 # Modify here!
+  - tqdm
+  - mkl=2024.0
+  - conda-forge::albumentations=0.5.1
+  - conda-forge::h5py=3.1.0
+  - conda-forge::ipdb
+  - conda-forge::jupyterlab
+  - conda-forge::loguru=0.5.3
+  - conda-forge::numba
+  - conda-forge::scipy
+  - pip:
+    - -r requirements.txt
+    - -e ./third_party/dsfm
+    - -e ./third_party/Octree-GS
+    - ./third_party/dsfm/third_party/RoIAlign.pytorch
+    - ./third_party/Octree-GS/submodules/diff-gaussian-rasterization
+    - ./third_party/Octree-GS/submodules/simple-knn

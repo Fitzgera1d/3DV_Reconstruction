@@ -1,0 +1,19 @@
+# @package _global_
+
+hydra:
+  run:
+    dir: ./outputs/hydra/${now:%Y-%m-%d}/${now:%H-%M-%S}
+
+defaults:
+  - sfm/hydra_configs: base.yaml
+
+  # - dataset: demo_church.yaml
+  # - sfm: hydra_configs/demo/dfsfm.yaml
+  # - recon: octreegs/full.yaml
+  # - recon: octreegs/train_only.yaml
+
+task_list: 
+  - sfm
+  - recon
+output_dir: outputs # decide sfm.results_output_dir & recon.model_path
+exp_name: test # decide sfm.exp_name & recon.exp_name
