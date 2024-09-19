@@ -80,4 +80,7 @@ python pipeline.py +dataset=demo_church.yaml +sfm=hydra_configs/demo/dfsfm.yaml 
 SfM result will be saved in `outputs/sfm/demo/church/DetectorFreeSfM_loftr_official_coarse_only__scratch_no_intrin/colmap_refined` in COLMAP format, and can be visualized by `colmap gui`.
 Reconstruction result will be saved in `outputs/recon/demo/church/`.
 
+## Viewer
+Follow the instructions in [README.md](./third_party/octree_gs/SIBR_viewers/README.md) to set up viewer for your environment.
+
 For more details, you can look at `README.md` for [DetectorFreeSfM](./third_party/dsfm/README.md) and [Octree-Gs](./third_party/octree_gs/README.md)
