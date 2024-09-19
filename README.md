@@ -14,10 +14,6 @@ git pull origin main:main
 git submodule update --init --recursive
 ```
 
-## Installation
-
-Please refer to [INSTALL.md](INSTALL.md) for installation instructions.
-
 ## Prepare Dataset
 ### SfM dataset
 The data structure of our system is organized as follows:
