@@ -7,17 +7,17 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - cudatoolkit=11.3 # Modify here!
+  - cudatoolkit=11.7 # Modify here!
   - ipython
   - matplotlib
   - plyfile=0.8.1
   - pip=22.3.1
   - pylint
   - python=3.9.15
-  - pytorch=1.12.1 # Modify here!
+  - pytorch=1.13.1 # Modify here!
   - pytorch-scatter
-  - torchaudio=0.12.1 # Modify here!
-  - torchvision=0.13.1 # Modify here!
+  - torchaudio=0.13.1 # Modify here!
+  - torchvision=0.14.1 # Modify here!
   - tqdm
   - mkl=2024.0
   - conda-forge::albumentations=0.5.1
@@ -30,7 +30,7 @@ dependencies:
   - pip:
     - -r requirements.txt
     - -e ./third_party/dsfm
-    - -e ./third_party/Octree-GS
+    - -e ./third_party/octree_gs
     - ./third_party/dsfm/third_party/RoIAlign.pytorch
-    - ./third_party/Octree-GS/submodules/diff-gaussian-rasterization
-    - ./third_party/Octree-GS/submodules/simple-knn
+    - ./third_party/octree_gs/submodules/diff-gaussian-rasterization
+    - ./third_party/octree_gs/submodules/simple-knn
