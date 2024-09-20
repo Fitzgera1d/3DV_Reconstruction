@@ -51,23 +51,10 @@ def main(cfg: DictConfig):
                 for task in cfg.recon.task_list:
                     recon_module.__dict__[task](cfg.recon)
         else:
-            # cfg.recon.source_path = str(_scene_path)
-            # cfg.recon.model_path = str(Path(cfg.output_dir).resolve() / 
-            #     'recon' / _dataset / _scene / datetime.now().strftime("%Y-%m-%d_%H:%M:%S"))
-            # cfg.recon.port = random.randint(10000, 30000)
             for task in cfg.recon.task_list:
                 recon_module.__dict__[task](cfg.recon)
             
 
 if __name__ == "__main__":
-    # Set up command line argument parser
     main()
-    # parser.add_argument("--iteration", default=-1, type=int)
-    # parser.add_argument("--ape", default=10, type=int)
-    # parser.add_argument("--skip_train", action="store_true")
-    # parser.add_argument("--skip_test", action="store_true")
-    # parser.add_argument("--quiet", action="store_true")
-    # parser.add_argument("--show_level", action="store_true")
-    # args = get_combined_args(parser)
-    # print("Rendering " + args.model_path)
     
